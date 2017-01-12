@@ -58,25 +58,40 @@ if ( isset($_POST["name"])&&
 			$html .= "<th>seat</th>";
 		$html .= "</tr>";
 		
+		for ($r=1; $r <= 5; $r++)	{
+			$exists = false;
+				foreach ($people as $p) {
+					if ($p->row == $r) {
+						$exists = true;
+					}
+				}
+				
+					//rida
 	
+					for ($i=1; $i <= 5; $i++)	{
+						
+						//echo "$i<br>";
 	
-		
-		for ($i=1; $i <= 5; $i++)	{
-			
-			
-			
-			foreach ($people as $p) {
-			
+						$exists = false;
+						
+						foreach ($people as $p) {
+						
 
-			if ($p->seat == $i)
-				echo "x<br>";
-			else
-				echo "$i<br>";
-
-		
+							if ($p->seat == $i && $p->row == $r ){
+									//echo "x<br>";
+								$exists = true;
+							}
+						}
+							//else
+								//echo "$i<br>";
+						if($exists){
+							echo "X<br>";
+						}else{
+							echo "$i<br>";
+						}
+					}
 			
-			
-			}
+	
 		}
 		foreach ($people as $p) {
 			
@@ -103,8 +118,7 @@ if ( isset($_POST["name"])&&
 ?>
 
 
-Kokku kohti:
-Vabu kohti:
+
 <br>
 
 <label>Vali seanss:</label>
