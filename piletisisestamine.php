@@ -62,19 +62,16 @@ if ( isset($_POST["name"])&&
 	
 		
 		for ($i=1; $i <= 5; $i++)	{
-			echo "$i<br>";
-			echo "$i<br>";
-			echo "$i<br>";
-			echo "$i<br>";
-			echo "$i<br>";
+			
 			
 			
 			foreach ($people as $p) {
 			
 
 			if ($p->seat == $i)
-				echo "taken";
-			
+				echo "x<br>";
+			else
+				echo "$i<br>";
 
 		
 			
