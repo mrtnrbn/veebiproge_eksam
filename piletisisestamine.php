@@ -30,6 +30,8 @@ if ( isset($_POST["name"])&&
 
 ?>
 
+
+
 <form method="POST">
 	<label>Nimi</label><br>
 	<input type="text" name="name"><br>
@@ -41,9 +43,11 @@ if ( isset($_POST["name"])&&
 	
 	
 </form>
+<h3>Vabad kohad</h3>
 
 <?php
 
+	$html = "<h3>Vabad kohad</h3>";
 
 	
 	$html = "<table class='table table-striped'>";
@@ -54,19 +58,43 @@ if ( isset($_POST["name"])&&
 			$html .= "<th>seat</th>";
 		$html .= "</tr>";
 		
+	
+	
+		
+		for ($i=1; $i <= 5; $i++)	{
+			echo "$i<br>";
+			echo "$i<br>";
+			echo "$i<br>";
+			echo "$i<br>";
+			echo "$i<br>";
+			
+			
+			foreach ($people as $p) {
+			
+
+			if ($p->seat == $i)
+				echo "taken";
+			
+
+		
+			
+			
+			}
+		}
 		foreach ($people as $p) {
 			
 			$html .= "<tr>";
 				$html .= "<td>".$p->name."</td>";
 				$html .= "<td>".$p->row."</td>";
 				$html .= "<td>".$p->seat."</td>";
-                //$html .= "<td><a href='edit.php?id=".$p->id."'>edit.php</a></td>";
+
 
 			$html .= "</tr>";
 		
 		}
 		
 	$html .= "</table>";
+		
 	
 	
 	echo $html;
@@ -76,3 +104,19 @@ if ( isset($_POST["name"])&&
 
 
 ?>
+
+
+Kokku kohti:
+Vabu kohti:
+<br>
+
+<label>Vali seanss:</label>
+<form method="POST">
+	<select name="seanss">
+		<option value="8:15">8:15</option>
+		<option value="10:15">10:15</option>
+		<option value="12:15">12:15</option>
+		<option value="14:15">14:15</option>
+		<option value="16:15">16:15</option>
+</form>
+<input type="submit" value="Kinnita">
