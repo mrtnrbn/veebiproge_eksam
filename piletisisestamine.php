@@ -20,12 +20,12 @@ if ( isset($_POST["name"])&&
 		$row = $_POST["row"];
 		$seat = $_POST["seat"];
 		
-		
+		addTicket ($name, $row, $seat);
 		
 		
 		 }
 
-
+	$people = getAllPeople();
 
 
 ?>
@@ -41,3 +41,38 @@ if ( isset($_POST["name"])&&
 	
 	
 </form>
+
+<?php
+
+
+	
+	$html = "<table class='table table-striped'>";
+	
+		$html .= "<tr>";
+			$html .= "<th>name</th>";
+			$html .= "<th>row</th>";
+			$html .= "<th>seat</th>";
+		$html .= "</tr>";
+		
+		foreach ($people as $p) {
+			
+			$html .= "<tr>";
+				$html .= "<td>".$p->name."</td>";
+				$html .= "<td>".$p->row."</td>";
+				$html .= "<td>".$p->seat."</td>";
+                //$html .= "<td><a href='edit.php?id=".$p->id."'>edit.php</a></td>";
+
+			$html .= "</tr>";
+		
+		}
+		
+	$html .= "</table>";
+	
+	
+	echo $html;
+
+
+
+
+
+?>
